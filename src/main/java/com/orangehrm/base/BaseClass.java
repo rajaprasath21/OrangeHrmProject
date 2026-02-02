@@ -26,6 +26,8 @@ import com.orangehrm.utilities.ExtentManager;
 import com.orangehrm.utilities.LoggerManager;
 //import io.github.bonigarcia.wdm.WebDriverManager;
 
+//BaseClass of Automation framework
+
 public class BaseClass {
 	//private static final Logger logger=LogManager.getFormatterLogger(BaseClass.class);
 	public static final Logger logger=LoggerManager.getLogger(BaseClass.class);
@@ -130,11 +132,11 @@ public class BaseClass {
 			*/
 			
 			// ✅ Use new headless mode (VERY IMPORTANT)
-			//options.addArguments("--headless");
+			options.addArguments("--headless");
 			//options.addArguments("--guest");
 
 			// ✅ Explicitly set window size
-			//options.addArguments("--window-size=1920,1080");
+			options.addArguments("--window-size=1920,1080");
 
 			// ✅ Stability flags
 			options.addArguments("--disable-gpu");
@@ -144,7 +146,7 @@ public class BaseClass {
 			
 			//WebDriverManager.chromedriver().setup();
 			//driver=new ChromeDriver();
-			driver.set(new ChromeDriver());  //New changes as per Threadlocal
+			driver.set(new ChromeDriver(options));  //New changes as per Threadlocal
 			//Register WebDiver for current Thread for ExtentReporting
 			ExtentManager.registerDriver(getDriver());
 			logger.info("ChromeDriver Instance created.");
@@ -199,7 +201,7 @@ public class BaseClass {
 		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWait));
 
 		//Maximize the browser
-		getDriver().manage().window().maximize();
+		//getDriver().manage().window().maximize();
 
 		//Navigate to URL
 		String url;
