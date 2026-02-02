@@ -26,7 +26,7 @@ import com.orangehrm.utilities.ExtentManager;
 import com.orangehrm.utilities.LoggerManager;
 //import io.github.bonigarcia.wdm.WebDriverManager;
 
-//BaseClass of Automation framework
+//This BaseClass important for Automation framework
 
 public class BaseClass {
 	//private static final Logger logger=LogManager.getFormatterLogger(BaseClass.class);
