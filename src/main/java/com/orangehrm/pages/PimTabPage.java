@@ -42,8 +42,8 @@ public class PimTabPage {
 	
 	//Method to Navigate the PIM Tab
 	public void ClickOnPIMTab() {
-		//actionDriver.click(pimTab);
-		actionDriver.clickUsingJS(pimTab);
+		actionDriver.click(pimTab);
+		//actionDriver.clickUsingJS(pimTab);
 	}
 	
 	//Employee Search
