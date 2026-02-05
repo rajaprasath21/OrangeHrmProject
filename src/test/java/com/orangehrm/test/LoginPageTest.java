@@ -41,7 +41,7 @@ public class LoginPageTest extends BaseClass {
 		ExtentManager.logStep("Navigating to Login Page entering username and password");
 		loginpage.login(username, password);
 		//loginpage.login("admin", "admin");
-		String expectedErrorMessage="Invalid credentials";
+		String expectedErrorMessage="Invalid credentials1";
 		Assert.assertTrue(loginpage.verifyErrorMessage(expectedErrorMessage),"Test Failed : invalid error message");
 		ExtentManager.logStep("Validation Successful");
 	}
