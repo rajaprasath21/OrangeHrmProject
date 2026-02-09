@@ -228,12 +228,14 @@ public class BaseClass {
 	private void configureBrower() {
 		//Implicit wait
 		int implicitWait=Integer.parseInt(properties.getProperty("implicitWait"));
+		boolean seleniumGrid = Boolean.parseBoolean(System.getProperty("seleniumGrid", properties.getProperty("seleniumGrid")));
 		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWait));
 
 		//Maximize the browser
 		//getDriver().manage().window().maximize();
 
 		//Navigate to URL
+		/*
 		String url;
 		try {
 			url = properties.getProperty("url");
@@ -241,7 +243,16 @@ public class BaseClass {
 		} catch (Exception e) {
 			logger.error("Failed to navigate the URL"+e.getMessage());
 		}
-
+		*/
+		try {
+			if (seleniumGrid) {
+				getDriver().get(properties.getProperty("url_grid"));
+			} else {
+				getDriver().get(properties.getProperty("url_local"));
+			}
+		} catch (Exception e) {
+			logger.error("Failed to navigate the URL"+e.getMessage());
+		}
 	}
 
 	//close the all browser windows
