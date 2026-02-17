@@ -11,6 +11,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.orangehrm.test.ApiTest" />
+			<class name="com.orangehrm.test.AllTabVisibilityCheckTest" />
 		</classes>
 	</test>
 	<test name="OrangeHRMTest_edge">
