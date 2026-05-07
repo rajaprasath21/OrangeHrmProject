@@ -27,12 +27,20 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/rajaprasath21/OrangeHrmProject.git'
             }
         }
+        
+                stage('Verify TestNG File') {
+    steps {
+        bat 'dir src/test/resources'
+   		 	}
+		}
+
 
         stage('Build') {
             steps {
-                bat 'mvn clean install -DseleniumGrid=true'
+                bat 'mvn clean install -DseleniumGrid=true -X'
             }
         }
+        
 
         stage('Test') {
             steps {
