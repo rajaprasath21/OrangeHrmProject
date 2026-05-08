@@ -28,16 +28,9 @@ pipeline {
             }
         }
         
-                stage('Verify TestNG File') {
-    steps {
-        bat 'dir src/test/resources'
-   		 	}
-		}
-
-
         stage('Build') {
             steps {
-                bat 'mvn clean install -DseleniumGrid=true -X'
+                bat 'mvn clean install -DseleniumGrid=true'
             }
         }
         
@@ -70,14 +63,10 @@ pipeline {
 
     post {
         
-            always {
-        archiveArtifacts artifacts: '**/src/test/resources/ExtentReport/*.html', fingerprint: true
-
-        bat 'dir target\\surefire-reports'
-
-        junit allowEmptyResults: true,
-              testResults: 'target/surefire-reports/*.xml'
-    }
+        always {
+            archiveArtifacts artifacts: '**/src/test/resources/ExtentReport/*.html', fingerprint: true
+            junit 'target/surefire-reports/*.xml'
+        }
 
         success {
             emailext (
