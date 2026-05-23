@@ -27,7 +27,11 @@ public class HomePage {
 	private By UserIDButton=By.className("oxd-userdropdown-name");
 	private By logoutButton=By.xpath("//a[text()='Logout']");
 	private By OrangeHRMlogo=By.xpath("//div[@class='oxd-brand-banner']//img");
-
+	
+	private By PunchStatusText=By.xpath("//p[contains(@class,'oxd-text oxd-text--p orangehrm-attendance-card-state')]");
+	private By PunchTimeForToday=By.xpath("//span[contains(@class,'oxd-text oxd-text--span orangehrm-attendance-card-fulltime')]");
+	private By LastWeekDateDuration=By.xpath("(//div[@class='orangehrm-attendance-card-summary-week']/p[contains(@class,'oxd-text oxd-text--p')])[2]");
+	private By PunchTimeForLastWeek=By.xpath("//p[contains(@class,'oxd-text oxd-text--p orangehrm-attendance-card-fulltime')]");
 
 	//Initialize the ActionDriver object by passing Webdriver instance
 	/*public HomePage(WebDriver driver) {
@@ -108,5 +112,21 @@ public class HomePage {
 	//Method to verify if Buzz tab is visible
 	public boolean isBuzzTabVisible() {
 		return actionDriver.isDisplayed(BuzzTab);
+	}
+	
+	public String getPunchStatusText() {
+		return actionDriver.getText(PunchStatusText);
+	}
+	
+	public String getPunchTimeForToday() {
+		return actionDriver.getText(PunchTimeForToday);
+	}
+	
+	public String getLastWeekDateDuration() {
+		return actionDriver.getText(LastWeekDateDuration);
+	}
+	
+	public String getPunchTimeForLastWeek() {
+		return actionDriver.getText(PunchTimeForLastWeek);
 	}
 }

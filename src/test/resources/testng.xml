@@ -12,6 +12,7 @@
 		<classes>
 			<class name="com.orangehrm.test.ApiTest" />
 			<class name="com.orangehrm.test.AllTabVisibilityCheckTest" />
+			<class name="com.orangehrm.test.WorkTimingTest" />
 		</classes>
 	</test>
 	<test name="OrangeHRMTest_edge">
