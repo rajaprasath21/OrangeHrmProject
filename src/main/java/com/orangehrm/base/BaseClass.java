@@ -52,12 +52,19 @@ public class BaseClass {
 
 	//Load the configuration file -> F:\Downloads\eclipse-workspace\orangeHRMProject\src\main\resources\config.properties
 	@BeforeSuite
-	public void loadConfig() throws IOException {
+	public void loadConfig()  {
 
 		properties=new Properties();
-		//FileInputStream fis=new FileInputStream("src\\main\\resources\\config.properties");
-		FileInputStream fis=new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\resources\\config.properties");
-		properties.load(fis);
+		try {
+			//FileInputStream fis=new FileInputStream("src\\main\\resources\\config.properties");
+			FileInputStream fis = new FileInputStream(
+					System.getProperty("user.dir") + "\\src\\main\\resources\\config.properties");
+			properties.load(fis);
+		} catch (IOException e) {
+			logger.error("Failed to load the properties file"+e.getMessage());
+		} catch (Exception e) {
+			logger.error("Failed to load the properties file"+e.getMessage());
+		}
 		logger.info("Config.properties file loaded");
 
 		//Start the Extent Report  --> This has been implemented in TestListner class. Method -> onStart(ITestContext context)
