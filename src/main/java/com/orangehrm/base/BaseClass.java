@@ -32,7 +32,6 @@ import com.orangehrm.utilities.LoggerManager;
 
 //This BaseClass important for Automation framework
 
-
 public class BaseClass {
 	///private static final Logger logger=LogManager.getFormatterLogger(BaseClass.class);
 	public static final Logger logger=LoggerManager.getLogger(BaseClass.class);
