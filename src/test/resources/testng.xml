@@ -14,6 +14,7 @@
 			<class name="com.orangehrm.test.AllTabVisibilityCheckTest" />
 			<class name="com.orangehrm.test.WorkTimingTest" />
 			<class name="com.orangehrm.test.AddEmployeeTest" />
+			<class name="com.orangehrm.test.CardPunchTest" />
 		</classes>
 	</test>
 	<test name="OrangeHRMTest_edge">
