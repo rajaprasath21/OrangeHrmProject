@@ -17,8 +17,6 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.ITestContext;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -28,7 +26,7 @@ import org.testng.asserts.SoftAssert;
 import com.orangehrm.actiondriver.ActionDriver;
 import com.orangehrm.utilities.ExtentManager;
 import com.orangehrm.utilities.LoggerManager;
-//import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 //This BaseClass important for Automation framework
 
@@ -98,11 +96,12 @@ public class BaseClass {
 		}
 		return actionDriver.get();
 	}
-
+	
+	
 	//Setter method for WebDriver
-	public void setDriver(ThreadLocal<WebDriver> driver) {
-		this.driver=driver;
-	}
+	//public void setDriver(ThreadLocal<WebDriver> driver) {
+	//	this.driver=driver;
+	//}
 
 	//This method is called the Driver methods : launchBrowser, maximize & 
 	@BeforeMethod
@@ -131,7 +130,7 @@ public class BaseClass {
 	//Initialize the WebDriver based on browser defined in config.properties file
 	private synchronized void launchBrowser(String browser) {
 		//String browser=properties.getProperty("browser");
-		boolean seleniumGrid = Boolean.parseBoolean(properties.getProperty("seleniumGrid","false"));
+		boolean seleniumGrid = Boolean.parseBoolean(properties.getProperty("seleniumGrid"));
 		String gridURL = properties.getProperty("gridURL");
 
 		if (seleniumGrid) {
