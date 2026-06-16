@@ -28,7 +28,6 @@ public class TestListener implements ITestListener,IAnnotationTransformer {
 		ExtentManager.startTest(testName);
 		ExtentManager.logStep("Test Started: "+testName);
 	}
-	
 	//Triggered when a test succeeds
 	@Override
 	public void onTestSuccess(ITestResult result) {
