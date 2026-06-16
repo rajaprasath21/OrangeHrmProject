@@ -7,7 +7,6 @@ import org.testng.asserts.SoftAssert;
 import com.orangehrm.base.BaseClass;
 import com.orangehrm.pages.LoginPage;
 import com.orangehrm.pages.PimTabPage;
-import com.orangehrm.utilities.DataProviders;
 import com.orangehrm.utilities.ExtentManager;
 import com.orangehrm.utilities.RandomGeneration;
 
@@ -53,6 +52,12 @@ public class AddEmployeeTest extends BaseClass{
 		softAssert.assertTrue(getDriver().getCurrentUrl().contains("/pim/viewPersonalDetails/empNumber"),"Employee ID not created");
 		if(getDriver().getCurrentUrl().contains("/pim/viewPersonalDetails/empNumber")) {
 			ExtentManager.logStepWithScreenshot(getDriver(), "Employee created successfully", "Employee ID Created");
+		}
+		
+		String empId = pimTabPage.getEmpId();
+		softAssert.assertTrue(empId!=null && !empId.isEmpty(),"The employee id was not populated");
+		if(empId!=null && !empId.isEmpty()) {
+			ExtentManager.logStep("The Employee ID is : "+pimTabPage.getEmpId());
 		}
 		
 		softAssert.assertAll();

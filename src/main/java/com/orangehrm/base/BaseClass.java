@@ -131,7 +131,7 @@ public class BaseClass {
 	//Initialize the WebDriver based on browser defined in config.properties file
 	private synchronized void launchBrowser(String browser) {
 		//String browser=properties.getProperty("browser");
-		boolean seleniumGrid = Boolean.parseBoolean(properties.getProperty("seleniumGrid"));
+		boolean seleniumGrid = Boolean.parseBoolean(properties.getProperty("seleniumGrid","false"));
 		String gridURL = properties.getProperty("gridURL");
 
 		if (seleniumGrid) {

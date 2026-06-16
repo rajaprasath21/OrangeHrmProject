@@ -74,6 +74,32 @@ public class ActionDriver {
 			return "";
 		} 
 	}
+	
+	//Method to Returns the current property value from the DOM
+	public String getDomPropertyValue(By by) {
+		try {
+			WaitForElementToBeVisible(by);
+			applyBorder(by, "green");
+			return driver.findElement(by).getDomProperty("value");
+		} catch (Exception e) {
+			applyBorder(by, "red");
+			logger.error("Unable to enter the value in input control : "+e.getMessage());
+			return "";
+		} 
+	}
+	
+	//Method to Returns the attribute value as it appears in the HTML DOM
+	public String getDomAttributeValue(By by, String attribute) {
+		try {
+			WaitForElementToBeVisible(by);
+			applyBorder(by, "green");
+			return driver.findElement(by).getDomAttribute(attribute);
+		} catch (Exception e) {
+			applyBorder(by, "red");
+			logger.error("Unable to enter the value in input control : "+e.getMessage());
+			return "";
+		} 
+	}
 
 	//Method to compare Two text --> changed the return type as boolean
 	public boolean compareText(By by,String expectedText) {

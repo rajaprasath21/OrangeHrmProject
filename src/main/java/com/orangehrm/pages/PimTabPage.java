@@ -83,7 +83,7 @@ public class PimTabPage {
 	}
 	
 	public String getEmpId() {
-		return actionDriver.getText(empId);
+		return actionDriver.getDomPropertyValue(empId);
 	}
 	
 	//Click the save button
