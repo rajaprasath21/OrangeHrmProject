@@ -13,7 +13,6 @@
 			<class name="com.orangehrm.test.ApiTest" />
 			<class name="com.orangehrm.test.AllTabVisibilityCheckTest" />
 			<class name="com.orangehrm.test.WorkTimingTest" />
-			<class name="com.orangehrm.test.AddEmployeeTest" />
 			<class name="com.orangehrm.test.CardPunchTest" />
 		</classes>
 	</test>
@@ -22,6 +21,8 @@
 		<classes>
 			<class name="com.orangehrm.test.DummyTest" />
 			<class name="com.orangehrm.test.DummyTest2" />
+			<class name="com.orangehrm.test.AddEmployeeTest" />
+			<class name="com.orangehrm.test.UpdateEmployeeDetailTest" />
 		</classes>
 	</test>
 	<test name="OrangeHRMTest_firefox">

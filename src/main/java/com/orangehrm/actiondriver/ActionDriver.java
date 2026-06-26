@@ -8,6 +8,7 @@ import java.util.Set;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -533,6 +534,20 @@ public class ActionDriver {
 		String elementDescription=getElementDescription(by);
 		try {
 			driver.findElement(by).clear();
+			ExtentManager.logStep("Cleared text in element: "+elementDescription);
+			logger.info("Cleared text in element --> "+elementDescription);
+		} catch (Exception e) {
+			ExtentManager.logFailure(BaseClass.getDriver(), "Unable to clear text", elementDescription + "_clear_failed");
+			logger.error("Unable to clear text in element: "+e.getMessage());
+		}
+	}
+	
+	public void clearTextWithKeys(By by) {
+		String elementDescription=getElementDescription(by);
+		try {
+			WebElement element = driver.findElement(by);
+			element.sendKeys(Keys.CONTROL + "a");
+			element.sendKeys(Keys.DELETE);
 			ExtentManager.logStep("Cleared text in element: "+elementDescription);
 			logger.info("Cleared text in element --> "+elementDescription);
 		} catch (Exception e) {

@@ -39,6 +39,19 @@ public class PimTabPage {
 	private By saveButton=By.xpath("//button[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']");
 	private By empId=By.xpath("(//input[@class='oxd-input oxd-input--active'])[2]");
 	
+	
+	private By clickGridRecord=By.xpath("//div[@class='oxd-table-row oxd-table-row--with-border oxd-table-row--clickable']");
+	
+	//private By nationality=By.xpath("(//div[@class='oxd-select-text oxd-select-text--active'])[1]");
+	private By nationality=By.xpath("(//div[@class='oxd-select-text-input'])[1]");
+	//private By maritalStatus=By.xpath("(//div[@class='oxd-select-text oxd-select-text--active'])[2]");
+	private By maritalStatus=By.xpath("(//div[@class='oxd-select-text-input'])[2]");
+	private By dateOfBirth=By.xpath("(//input[@class='oxd-input oxd-input--active'])[6]");
+	private By maleGender=By.xpath("(//span[@class='oxd-radio-input oxd-radio-input--active --label-right oxd-radio-input'])[1]");
+	private By femaleGender=By.xpath("(//span[@class='oxd-radio-input oxd-radio-input--active --label-right oxd-radio-input'])[2]");
+	
+	private By message=By.id("oxd-toaster_1");
+	
 	//Initialize the ActionDriver object by passing Webdriver instance
 	public PimTabPage(WebDriver driver) {
 		this.actionDriver=BaseClass.getActionDriver(); 
@@ -74,7 +87,7 @@ public class PimTabPage {
 		
 	}
 	
-	public void enterEmpUsername(String value) {
+	public void enterEmpFirstname(String value) {
 		actionDriver.enterText(empFirstName, value);
 	}
 	
@@ -90,6 +103,52 @@ public class PimTabPage {
 	public void clickSave() {
 		actionDriver.click(saveButton);
 		
+	}
+	
+	public void employeeIdSearch(String value) {
+		actionDriver.enterText(empId, value);
+		actionDriver.click(searchButton);
+		//actionDriver.scrollToElement(empGridFirstAndMiddleName);
+		actionDriver.scrollToElement(clickGridRecord);
+	}
+	
+	public void clickGirdRecord() {
+		actionDriver.click(clickGridRecord);
+	}
+	
+	public void selectNationality(String value) {
+		actionDriver.click(nationality);
+		By SelectOption = By.xpath("//div[@role='listbox']//span[text()='" + value + "']");
+		actionDriver.click(SelectOption);
+	}
+	
+	public void selectMaritalStatus(String value) {
+		actionDriver.click(maritalStatus);
+		By SelectOption = By.xpath("//div[@role='listbox']//span[text()='" + value + "']");
+		actionDriver.click(SelectOption);
+	}
+	
+	public void clearDateOfBirth() {
+		actionDriver.clearTextWithKeys(dateOfBirth);
+	}
+	
+	public void enterDateOfBirth(String value) {
+		//actionDriver.clearTextWithKeys(dateOfBirth);
+		actionDriver.enterText(dateOfBirth, value);
+	}
+	
+	public void selectGender(String gender) {
+		String value = gender.toLowerCase();
+		if(value.equals("male")) {
+			actionDriver.click(maleGender);
+		}
+		if(value.equals("female")) {
+			actionDriver.click(femaleGender);
+		}
+	}
+	
+	public String getMessage() {
+		return actionDriver.getText(message);
 	}
 	
 	//Method to perform logout peration

@@ -1,12 +1,13 @@
 package com.orangehrm.test;
 
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
 
 import com.orangehrm.base.BaseClass;
 import com.orangehrm.pages.LoginPage;
 import com.orangehrm.pages.PimTabPage;
+import com.orangehrm.utilities.ExcelWriterReaderUtility;
 import com.orangehrm.utilities.ExtentManager;
 import com.orangehrm.utilities.RandomGeneration;
 
@@ -44,8 +45,11 @@ public class AddEmployeeTest extends BaseClass{
 			ExtentManager.logStepWithScreenshot(getDriver(), "Add Employee tab loaded", "Employee tab");
 		}
 		
-		pimTabPage.enterEmpUsername(RandomGeneration.generateString(10));
-		pimTabPage.enterEmpLastname(RandomGeneration.generateString(10));
+		String empFirstname = RandomGeneration.generateString(10);	
+		String empLastname = RandomGeneration.generateString(10);
+		
+		pimTabPage.enterEmpFirstname(empFirstname);
+		pimTabPage.enterEmpLastname(empLastname);
 		pimTabPage.clickSave();
 		staticWait(5);
 		
@@ -56,8 +60,12 @@ public class AddEmployeeTest extends BaseClass{
 		
 		String empId = pimTabPage.getEmpId();
 		softAssert.assertTrue(empId!=null && !empId.isEmpty(),"The employee id was not populated");
+		
 		if(empId!=null && !empId.isEmpty()) {
 			ExtentManager.logStep("The Employee ID is : "+pimTabPage.getEmpId());
+			ExcelWriterReaderUtility.writeData("EmpFirstname", empFirstname);
+			ExcelWriterReaderUtility.writeData("EmpLastname", empLastname);
+			ExcelWriterReaderUtility.writeData("EmpId", empId);
 		}
 		
 		softAssert.assertAll();
