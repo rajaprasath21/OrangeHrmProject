@@ -24,6 +24,7 @@ import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
 import com.orangehrm.actiondriver.ActionDriver;
+import com.orangehrm.utilities.ExcelWriterReaderUtility;
 import com.orangehrm.utilities.ExtentManager;
 import com.orangehrm.utilities.LoggerManager;
 
@@ -64,7 +65,7 @@ public class BaseClass {
 			logger.error("Failed to load the properties file"+e.getMessage());
 		}
 		logger.info("Config.properties file loaded");
-
+		ExcelWriterReaderUtility.clearDataKeepHeader();
 		//Start the Extent Report  --> This has been implemented in TestListner class. Method -> onStart(ITestContext context)
 		//ExtentManager.getReporter();
 	}

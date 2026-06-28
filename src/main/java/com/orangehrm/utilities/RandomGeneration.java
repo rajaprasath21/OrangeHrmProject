@@ -1,5 +1,7 @@
 package com.orangehrm.utilities;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -85,6 +87,10 @@ public class RandomGeneration {
         }
 
         return Long.parseLong(sb.toString());
+    }
+    
+    public static String getCurrentDate() {
+        return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
 
 }
