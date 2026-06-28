@@ -7,13 +7,19 @@
 	<listeners>
 		<listener class-name="com.orangehrm.listeners.TestListener"></listener>
 	</listeners>
-	<test name="OrangeHRMTest_chrome">
+	<test name="OrangeHRMTest_chrome1">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.orangehrm.test.ApiTest" />
 			<class name="com.orangehrm.test.AllTabVisibilityCheckTest" />
 			<class name="com.orangehrm.test.WorkTimingTest" />
 			<class name="com.orangehrm.test.CardPunchTest" />
+		</classes>
+	</test>
+	
+		<test name="OrangeHRMTest_chrome2">
+		<parameter name="browser" value="chrome" />
+		<classes>
 			<class name="com.orangehrm.test.AddEmployeeTest" />
 			<class name="com.orangehrm.test.UpdateEmployeeDetailTest" />
 			<class name="com.orangehrm.test.CreateClaimTest" />
