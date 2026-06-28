@@ -305,6 +305,13 @@ public class ActionDriver {
 		}
 	}
 	
+	//Method to select the listBox dropdown by index
+	public void selectListBoxOptions(By by,String value) {
+		click(by);
+		By SelectOption = By.xpath("//div[@role='listbox']//span[text()='" + value + "']");
+		click(SelectOption);
+	}
+	
 	//Method to get all options from a dropdown
 	public List<String> getDropdownOptions(By by){
 		List<String> optionsList=new ArrayList<String>();

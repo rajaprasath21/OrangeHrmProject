@@ -16,6 +16,7 @@
 			<class name="com.orangehrm.test.CardPunchTest" />
 			<class name="com.orangehrm.test.AddEmployeeTest" />
 			<class name="com.orangehrm.test.UpdateEmployeeDetailTest" />
+			<class name="com.orangehrm.test.CreateClaimTest" />
 		</classes>
 	</test>
 	<test name="OrangeHRMTest_edge">
