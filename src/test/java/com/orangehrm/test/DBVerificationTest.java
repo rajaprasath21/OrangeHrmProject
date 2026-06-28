@@ -44,7 +44,7 @@ public class DBVerificationTest extends BaseClass{
 		//pimTabPage.employeeSearch("Jaya");
 		pimTabPage.employeeSearch(empName);
 
-		
+		staticWait(2);
 		ExtentManager.logStep("Get the Employee Name from DB");
 		//String employee_id="0003";
 		

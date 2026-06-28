@@ -16,7 +16,6 @@ public class CreateClaimTest extends BaseClass {
 	private LoginPage loginPage;
 	private ClaimPage claimPage;
 
-
 	@BeforeMethod
 	public void setupPages() {
 		loginPage=new LoginPage(getDriver());
@@ -35,7 +34,6 @@ public class CreateClaimTest extends BaseClass {
 		claimPage.clickClaimTab();
 		
 		claimPage.clickAssignClaim();
-		
 		
 		String firstName = ExcelWriterReaderUtility.getValueByKey("EmpFirstname");
 		String lastName = ExcelWriterReaderUtility.getValueByKey("EmpLastname");
@@ -78,12 +76,11 @@ public class CreateClaimTest extends BaseClass {
 			softAssert.assertTrue(false,"Claim not assigned");
 		}
 		
-		staticWait(1);
+		staticWait(2);
 		claimPage.clickBackBtn();
 		
-		staticWait(2);
+		staticWait(3);
 		
-		staticWait(1);
 		ExtentManager.logStep("Verify the employee name");
 		if (claimPage.VerifyTheGirdEmployeeName(EmpFullName)) {
 			softAssert.assertTrue(true,"Grid Employee name not matched");

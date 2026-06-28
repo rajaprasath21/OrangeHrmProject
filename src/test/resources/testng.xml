@@ -26,6 +26,7 @@
 			<class name="com.orangehrm.test.DummyTest2" />
 		</classes>
 	</test>
+
 	<test name="OrangeHRMTest_firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
@@ -35,7 +36,6 @@
 		</classes>
 	</test>
 </suite>
-
 
 <!-- Old 
 <suite name="OrangeHRMSuite" parallel="classes" thread-count="5">
